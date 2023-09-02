@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Project</title>
+    <link rel="stylesheet" href="createstudent.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <header>
+        <div class="link">
+          <a href="https://www.gla.ac.in/" target="_blank"
+            >Gla University,Mathura</a
+          >
+        </div>
+        <div class="logo">
+          <a href="../index.html"
+            ><img src="../Image/GlaImage.jpg" alt="College Logo" id="logo"
+          /></a>
+        </div>
+        <div class="date-time">
+          <span id="date-time"></span>
+        </div>
+      </header>
+    </div>
+    <div id="middle">
+      <form id="student-form">
+        <input type="hidden" id="student-id" name="student-id" value="" />
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+        <br />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <br />
+
+        <label for="mobile">Mobile:</label>
+        <input
+          type="tel"
+          id="mobile"
+          name="phoneNo"
+          placeholder="Enter your contact number"
+          required
+        />
+        <br />
+
+        <button type="submit">Submit</button>
+        <button type="reset" id="reset-button">Reset</button>
+      </form>
+    </div>
+
+    <div>
+      <footer>
+        <div class="footer-section">
+          <h2>Contact Us</h2>
+          <p>Email: glauniversity@gla.ac.in</p>
+          <p>Phone: +91-9927064017</p>
+        </div>
+        <div class="footer-section">
+          <h2>Location</h2>
+          <p>17km Stone, NH-19, Mathura-Delhi Road P.O. Chaumuhan</p>
+          <p>Mathura-281 406 (U.P.) India</p>
+        </div>
+        <!-- <div class="copyright">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+      </div> -->
+      </footer>
+    </div>
+    <script src="../script.js" defer></script>
+  </body>
+</html>
