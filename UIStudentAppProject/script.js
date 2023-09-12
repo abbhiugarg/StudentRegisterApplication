@@ -18,17 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     if (!validateName(nameInput.value)) {
-      alert("Name should only contain letters and spaces.");
+      // alert("Name should only contain letters and spaces.");
+      toastr.error("Name should only contain letters and spaces.");
       return;
     }
 
     if (!validateEmail(emailInput.value)) {
-      alert("Invalid email format.");
+      // alert("Invalid email format.");
+      toastr.error("Invalid email format.");
       return;
     }
 
     if (!validateMobile(mobileInput.value)) {
-      alert("Invalid mobile number format.");
+      // alert("Invalid mobile number format.");
+      toastr.error("Invalid mobile number format.");
       return;
     }
 
@@ -50,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         contentType: "application/json",
         success: function () {
           alert("Student data updated successfully!");
+          // toastr.success("Student data updated successfully!");
           nameInput.value = "";
           emailInput.value = "";
           mobileInput.value = "";
@@ -81,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
           alert(
             `Thank you ${data.name} for registering!\nYour University Id is ${data.id}`
           );
-
           nameInput.value = "";
           emailInput.value = "";
           mobileInput.value = "";
@@ -135,6 +138,14 @@ $(document).ready(function () {
           student.id;
         // console.log("Edit button clicked for student:", student);
       });
+
+      toastr.options = {
+        closeButton: true,
+        progressBar: true,
+        showDuration: "300",
+        positionClass: "toast-top-right",
+        preventDuplicates: true,
+      };
 
       deleteButton.click(function () {
         if (confirm("Are you sure you want to delete this student?")) {
