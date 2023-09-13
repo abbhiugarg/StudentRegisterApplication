@@ -1,50 +1,38 @@
 package com.studentspringboot.StudentAppProject.services;
 
-import com.studentspringboot.StudentAppProject.Dao.StudentRepository;
+import com.studentspringboot.StudentAppProject.Dao.StudentDao;
 import com.studentspringboot.StudentAppProject.entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentDao studentdao;
     @Override
     public List<Student> getAllStudents(){
-        return this.studentRepository.findAll();
+        return this.studentdao.givingAllStudents();
     }
     @Override
     public Student getSingleStudent(Long id){
-        Student student = null;
-        Optional<Student> optStudent= this.studentRepository.findById(id);
-        student = optStudent.get();
-        return student;
+        return this.studentdao.getSingleStudent(id);
     }
     @Override
     public Student addStudent(Student student){
-        System.out.println(this.studentRepository.save(student));
-        return this.studentRepository.save(student);
+        return this.studentdao.addSingleStudent(student);
     }
     @Override
     public Student updateStudent(Student newStudent){
-        Long id= newStudent.getId();
-        Student existingStudent = getSingleStudent(id);
-        if (existingStudent != null) {
-            return this.studentRepository.save(newStudent);
-        }
-        else {
-            return null;
-        }
+        return this.studentdao.updateSingleStudent(newStudent);
     }
     @Override
     public void deleteStudent(Long id){
-        this.studentRepository.deleteById(id);
+        this.studentdao.deleteSingleStudent(id);
     }
     @Override
     public void deleteAll(){
-        this.studentRepository.deleteAll();
+        this.studentdao.deletingAllStudents();
     }
 }
